@@ -3,13 +3,15 @@ import Head from "next/head";
 import FixedHeader from "../components/FixedHeader";
 import SectionHeader from "../components/SectionHeader";
 import LargeHeading from "../components/LargeHeading";
-import getPosts from "../../services/getPosts";
-import { useEffect } from "react";
+import RichTextResponse from "../utils/richTextConverter";
+import { useQuery } from "@apollo/client";
+import GET_POSTS from "../../queries/getPosts";
 
 const Home: NextPage = () => {
-  useEffect(() => {
-    getPosts();
-  }, []);
+  const { loading, error, data } = useQuery(GET_POSTS);
+
+  if (loading) return "Loading...";
+  if (error) return `Error! ${error.message}`;
 
   return (
     <>
@@ -34,6 +36,8 @@ const Home: NextPage = () => {
         lineTwo="ARNOLD"
         className="justify-start"
       />
+
+      {JSON.stringify(data)}
     </>
   );
 };
