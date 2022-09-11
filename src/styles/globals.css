@@ -1,3 +1,12 @@
+@import url("https://use.typekit.net/lme3vmv.css");
+
+body, html {
+    font-family: poppins,sans-serif;
+
+    --tw-bg-opacity: 1;
+    background-color: rgb(245 238 208/var(--tw-bg-opacity));
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
