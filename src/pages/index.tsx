@@ -3,8 +3,14 @@ import Head from "next/head";
 import FixedHeader from "../components/FixedHeader";
 import SectionHeader from "../components/SectionHeader";
 import LargeHeading from "../components/LargeHeading";
+import getPosts from "../../services/getPosts";
+import { useEffect } from "react";
 
 const Home: NextPage = () => {
+  useEffect(() => {
+    getPosts();
+  }, []);
+
   return (
     <>
       <Head>
@@ -33,5 +39,3 @@ const Home: NextPage = () => {
 };
 
 export default Home;
-
-export async function getStaticProps() {}
