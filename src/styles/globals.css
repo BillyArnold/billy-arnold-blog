@@ -10,3 +10,39 @@ body, html {
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+/*for rich text rendering through contentful*/
+
+.blog-content h1,.blog-content h2,.blog-content h3,.blog-content h4,.blog-content h5,.blog-content h6,.blog-content p,.blog-content ul,.blog-content ol,.blog-content hr {
+    margin-bottom: .75rem;
+} 
+
+.blog-content h1, .blog-content h2, .blog-content h3, .blog-content h4 {
+    line-height: 1;
+}
+
+.blog-content h2 {
+    font-size: 2rem;
+}
+.blog-content h3 {
+    font-size: 1.5rem;
+}
+
+.blog-content ul {
+    list-style: circle;
+    margin-left: 1rem;
+}
+
+.blog-content hr {
+    width: 100%;
+    border-color: rgb(23, 115, 105);
+    border-width: 2px;
+}
+
+.blog-content p:has(code){
+    background-color: rgba(255, 255, 255, .3);
+    padding: 0.3rem 0.8rem;
+    overflow-x: scroll;
+    margin-bottom: 0;
+}

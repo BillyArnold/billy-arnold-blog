@@ -3,9 +3,10 @@ import Head from "next/head";
 import FixedHeader from "../components/FixedHeader";
 import SectionHeader from "../components/SectionHeader";
 import LargeHeading from "../components/LargeHeading";
-import RichTextResponse from "../utils/richTextConverter";
 import { useQuery } from "@apollo/client";
 import GET_POSTS from "../../queries/getPosts";
+import BlogItem from "../components/blogItem";
+import Contact from "../components/Contact";
 
 const Home: NextPage = () => {
   const { loading, error, data } = useQuery(GET_POSTS);
@@ -37,7 +38,13 @@ const Home: NextPage = () => {
         className="justify-start"
       />
 
-      {JSON.stringify(data)}
+      <div className="w-full px-5 md:px-20">
+        {data.blogPostCollection.items.map((item) => (
+          <BlogItem item={item} />
+        ))}
+      </div>
+
+      <Contact lineOne="HELLO@BILLY" lineTwo="ARNOLD.CO.UK" />
     </>
   );
 };

@@ -5,6 +5,7 @@ const GET_POSTS = gql`
     blogPostCollection(limit: 100) {
       items {
         title
+        slug
         excerpt
         featuredImage {
           title
