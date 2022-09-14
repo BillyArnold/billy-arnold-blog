@@ -2,7 +2,7 @@ import { gql } from "@apollo/client";
 
 const GET_POSTS = gql`
   query GetPosts {
-    blogPostCollection(limit: 100) {
+    blogPostCollection(limit: 100, order: [sys_firstPublishedAt_DESC]) {
       items {
         title
         slug

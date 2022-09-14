@@ -10,11 +10,11 @@ const BlogItem = (props) => {
         viewport={{ once: true }}
         transition={{ duration: 1 }}
       >
-        <div className="blog-item mb-6 flex flex-col md:flex-row">
-          <div className="w-full md:w-2/5 mb-4 md:mb-0">
+        <div className="blog-item mb-6 flex flex-col md:flex-row ">
+          <div className="w-full md:w-2/5 mb-4 md:mb-0 grow-0 shrink-0 md:flex md:flex-col md:justify-center">
             <img src={props.item.featuredImage.url} />
           </div>
-          <div className="p-4 md:p-10">
+          <div className="p-4 md:p-10 w-full md:w-3/5 grow-0 md:flex md:flex-col md:justify-center">
             <h2 className="uppercase text-3xl font-semibold mb-2">
               {props.item.title}
             </h2>

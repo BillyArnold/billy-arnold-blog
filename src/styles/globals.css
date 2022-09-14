@@ -46,3 +46,10 @@ body, html {
     overflow-x: scroll;
     margin-bottom: 0;
 }
+
+.blog-content p:has(pre){
+    background-color: rgba(255, 255, 255, .3);
+    padding: 0.3rem 0.8rem;
+    overflow-x: scroll;
+    margin-bottom: 0;
+}

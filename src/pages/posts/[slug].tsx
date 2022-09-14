@@ -7,6 +7,8 @@ import { useRouter } from "next/router";
 import { gql } from "@apollo/client";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import Contact from "../../components/Contact";
+import { MARKS } from "@contentful/rich-text-types";
+import ErrorPage from "next/error";
 
 const Slug: NextPage = () => {
   const router = useRouter();
@@ -36,6 +38,16 @@ const Slug: NextPage = () => {
 
   if (loading) return "Loading...";
   if (error) return `Error! ${error.message}`;
+
+  if (typeof data.blogPostCollection.items[0] == "undefined") {
+    return <ErrorPage statusCode="404" />;
+  }
+
+  const options = {
+    renderMark: {
+      [MARKS.CODE]: (text) => <pre>{text}</pre>,
+    },
+  };
 
   return (
     <>
@@ -68,7 +80,8 @@ const Slug: NextPage = () => {
 
       <div className="w-full px-5 md:px-20 flex flex-col blog-content">
         {documentToReactComponents(
-          data.blogPostCollection.items[0].content.json
+          data.blogPostCollection.items[0].content.json,
+          options
         )}
       </div>
 
