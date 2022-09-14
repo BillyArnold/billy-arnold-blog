@@ -1,7 +1,18 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-const BlogItem = (props) => {
+export interface itemType {
+  item: {
+    featuredImage: {
+      url: string;
+    };
+    excerpt: string;
+    title: string;
+    slug: string;
+  };
+}
+
+const BlogItem = (props: itemType) => {
   return (
     <>
       <motion.div

@@ -36,16 +36,26 @@ const Slug: NextPage = () => {
     variables: { slug },
   });
 
-  if (loading) return "Loading...";
-  if (error) return `Error! ${error.message}`;
+  if (loading)
+    return (
+      <div>
+        <p>Loading...</p>
+      </div>
+    );
+  if (error)
+    return (
+      <div>
+        <p>Error! {error.message}</p>
+      </div>
+    );
 
   if (typeof data.blogPostCollection.items[0] == "undefined") {
-    return <ErrorPage statusCode="404" />;
+    return <ErrorPage statusCode={404} />;
   }
 
   const options = {
     renderMark: {
-      [MARKS.CODE]: (text) => <pre>{text}</pre>,
+      [MARKS.CODE]: (text: any) => <pre>{text}</pre>,
     },
   };
 

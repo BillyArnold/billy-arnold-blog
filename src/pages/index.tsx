@@ -7,12 +7,23 @@ import { useQuery } from "@apollo/client";
 import GET_POSTS from "../../queries/getPosts";
 import BlogItem from "../components/blogItem";
 import Contact from "../components/Contact";
+import { itemType } from "../components/blogItem";
 
 const Home: NextPage = () => {
   const { loading, error, data } = useQuery(GET_POSTS);
 
-  if (loading) return "Loading...";
-  if (error) return `Error! ${error.message}`;
+  if (loading)
+    return (
+      <div>
+        <p>Loading...</p>
+      </div>
+    );
+  if (error)
+    return (
+      <div>
+        <p>Error! {error.message}</p>
+      </div>
+    );
 
   return (
     <>
@@ -39,7 +50,7 @@ const Home: NextPage = () => {
       />
 
       <div className="w-full px-5 md:px-20">
-        {data.blogPostCollection.items.map((item) => (
+        {data.blogPostCollection.items.map((item: itemType["item"]) => (
           <BlogItem item={item} />
         ))}
       </div>
