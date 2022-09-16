@@ -9,7 +9,6 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import Contact from "../../components/Contact";
 import { MARKS, BLOCKS } from "@contentful/rich-text-types";
 import ErrorPage from "next/error";
-import RichText from "../../utils/richTextRender";
 
 const Slug: NextPage = () => {
   const router = useRouter();
@@ -108,6 +107,7 @@ const Slug: NextPage = () => {
 
       <div className="uppercase w-full px-5 md:px-20 pb-12">
         <img
+          alt={data.blogPostCollection.items[0].featuredImage.title}
           src={data.blogPostCollection.items[0].featuredImage.url}
           className="w-full"
         />

@@ -1,7 +1,11 @@
 import { motion } from "framer-motion";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 
-const Contact = (props: any) => {
+const Contact = (props: {
+  lineOne: string;
+  lineTwo: string;
+  className?: string;
+}) => {
   const classes =
     "flex flex-col relative justify-center w-full px-5 md:px-20 pb-20 font-semibold text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl min-h-[40vh] md:min-h-[50vh] " +
     props.className;
@@ -51,7 +55,7 @@ const Contact = (props: any) => {
               window.open("mailto:hello@billyarnold.co.uk");
             }}
           >
-            {line1.split("").map((char: any, index: number) => {
+            {line1.split("").map((char: string, index: number) => {
               return (
                 <motion.span
                   className="inline-block"
@@ -69,7 +73,7 @@ const Contact = (props: any) => {
               window.open("mailto:hello@billyarnold.co.uk");
             }}
           >
-            {line2.split("").map((char: any, index: number) => {
+            {line2.split("").map((char: string, index: number) => {
               return (
                 <motion.span
                   className="inline-block"

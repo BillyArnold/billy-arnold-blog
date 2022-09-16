@@ -50,9 +50,11 @@ const Home: NextPage = () => {
       />
 
       <div className="w-full px-5 md:px-20">
-        {data.blogPostCollection.items.map((item: itemType["item"]) => (
-          <BlogItem item={item} />
-        ))}
+        {data.blogPostCollection.items.map(
+          (item: itemType["item"], id: number) => (
+            <BlogItem key={id} item={item} />
+          )
+        )}
       </div>
 
       <Contact lineOne="HELLO@BILLY" lineTwo="ARNOLD.CO.UK" />
