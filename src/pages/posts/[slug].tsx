@@ -7,8 +7,9 @@ import { useRouter } from "next/router";
 import { gql } from "@apollo/client";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import Contact from "../../components/Contact";
-import { MARKS } from "@contentful/rich-text-types";
+import { MARKS, BLOCKS } from "@contentful/rich-text-types";
 import ErrorPage from "next/error";
+import RichText from "../../utils/richTextRender";
 
 const Slug: NextPage = () => {
   const router = useRouter();
@@ -26,6 +27,19 @@ const Slug: NextPage = () => {
           }
           content {
             json
+            links {
+              assets {
+                block {
+                  sys {
+                    id
+                  }
+                  url
+                  title
+                  width
+                  height
+                }
+              }
+            }
           }
         }
       }
@@ -54,6 +68,17 @@ const Slug: NextPage = () => {
   }
 
   const options = {
+    /*renderNode: {
+      [BLOCKS.EMBEDDED_ASSET]: (node: any) => (
+        //Graph QL not returning image url so currently will need to fetch the image //BAD CONTENTFUL
+
+        <img
+          className="max-w-full"
+          src={node.data?.target?.fields?.file?.url}
+          alt={node.data?.target?.fields?.title}
+        />
+      ),
+    },*/
     renderMark: {
       [MARKS.CODE]: (text: any) => <pre>{text}</pre>,
     },
