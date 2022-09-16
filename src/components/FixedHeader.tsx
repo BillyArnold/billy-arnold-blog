@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 const FixedHeader = ({}) => {
   return (
     <>
-      <div className="block-highlight  h-3 w-full left-0 top-0 bg-emeraldGreen transition-all duration-500 ease-in-out"></div>
+      <div className="block-highlight  h-3 w-full left-0 top-0 bg-[#686285] transition-all duration-500 ease-in-out"></div>
       <div className="bg-transparent text-beigeBG mix-blend-difference flex justify-between z-10 block lg:fixed w-full px-5 md:px-20 py-6 font-semibold text-xl">
         <motion.div
           initial={{ y: -100 }}
